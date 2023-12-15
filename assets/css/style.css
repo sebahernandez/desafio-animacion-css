@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "nav"
+    "main"
+    "footer";
+  min-height: 100vh;
+  font-family: "Lora", serif;
+}
+h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 0px;
+}
+.menu {
+  display: none;
+}
+.logo {
+  text-align: center;
+}
+.logo img {
+  width: 140px;
+  height: 140px;
+  text-align: center;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  gap: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.card {
+  height: auto;
+  object-fit: cover;
+  background: #f6f6f6;
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 40px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  filter: grayscale(0%);
+  transition: filter 0.5s;
+}
+
+.card img:hover {
+  filter: grayscale(100%);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 18pt;
+}
+
+.social {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.social a {
+  color: #fff;
+  margin: 10px;
+}
+
+@media screen and (min-width: 576px) {
+  body {
+    grid-template-areas:
+      "nav main"
+      "nav main"
+      "footer footer";
+    min-height: 100vh;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr 150px;
+  }
+
+  footer {
+    grid-area: footer;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 0px;
+  }
+
+  nav {
+    display: block;
+    grid-area: nav;
+  }
+  .logo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 10px;
+    list-style-type: none;
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    display: block;
+  }
+
+  .menu ul li {
+    padding: 5px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transition: left 0.5s;
+    z-index: -1;
+  }
+
+  .menu ul li:hover::before {
+    left: 0;
+  }
+
+  .menu ul li:hover a {
+    color: #fff;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .card {
+    height: auto;
+    object-fit: cover;
+    background: #f6f6f6;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+    filter: grayscale(0%);
+    transition: filter 0.5s;
+  }
+
+  .card img:hover {
+    filter: grayscale(100%);
+  }
+
+  .card p {
+    font-size: 1rem;
+    line-height: 18pt;
+  }
+
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin: 20px;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px;
+    list-style-type: none;
+  }
+
+  .menu ul li {
+    padding: 15px 10px;
+    width: 100%;
+    margin: 10px 0px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+  }
+}
+
+@media screen and (min-width: 998px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
